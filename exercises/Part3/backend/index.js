@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 
+app.use(express.static('build'));
+
 morgan.token('req-body', (req,res)=> JSON.stringify(req.body))
 app.use(morgan(':method :url :status :response-time ms :req-body'));
 app.use(express.json())
@@ -28,10 +30,6 @@ let phonebook = [
         "number": "39-23-6423122"
     }
 ]
-
-app.get('/', (req, res) => {
-    res.redirect("/api/persons");
-})
 
 app.get('/api/persons', (req, res) => {
     res.json(phonebook);
