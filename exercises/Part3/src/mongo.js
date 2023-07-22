@@ -6,8 +6,6 @@ if (process.argv.length < 3) {
 }
 
 const password = process.argv[2]
-const phoneName = process.argv[3]
-const phoneNumber = process.argv[4]
 
 const url = `mongodb+srv://Meet:${password}@cluster1.tucn7yw.mongodb.net/phonebookApp?retryWrites=true&w=majority`
 
@@ -20,13 +18,23 @@ const phonebookSchema = new mongoose.Schema({
 })
 const Phonebook = mongoose.model('Phonebook', phonebookSchema);
 
-const phone = new Phonebook({
-    name: phoneName,
-    number: phoneNumber
-})
+if (process.argv.length > 3) {
+    const phoneName = process.argv[3]
+    const phoneNumber = process.argv[4]
+    const phone = new Phonebook({
+        name: phoneName,
+        number: phoneNumber
+    })
+    
+    phone.save().then(result => {
+        console.log("Phone number saved");
+        console.log(result);
+        mongoose.connection.close();
+    })
 
-phone.save().then(result =>{
-    console.log("Phone number saved");
-    console.log(result);
-    mongoose.connection.close();
-})
+}else if (process.argv.length == 3){
+    Phonebook.find({}).then(result =>{
+        console.log(result);
+        mongoose.connection.close();
+    })
+}
