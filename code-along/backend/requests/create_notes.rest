@@ -2,6 +2,22 @@ POST http://localhost:3001/api/notes HTTP/1.1
 content-type: application/json
 
 {
-    "content": "do not forget to set the right content type",
+    "content": "Jason figured it out?! Jason?! This is a real low point. Yeah, this one hurts. Ow.",
+
     "important": true
+}
+
+####
+GET http://localhost:3001/api/notes
+
+###
+DELETE http://localhost:3001/api/notes/64bbf77381f10a7e3e0a5da0
+
+###
+PUT http://localhost:3001/api/notes/64bbf77381f10a7e3e0a5d9f
+Content-Type: application/json
+
+{
+    "content": "How you doin? - Joey",
+    "important" : false
 }
