@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "lint": "eslint ."
+
   },
   "author": "Meet Chaudhary",
   "license": "ISC",
@@ -14,5 +16,8 @@
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.45.0"
   }
 }

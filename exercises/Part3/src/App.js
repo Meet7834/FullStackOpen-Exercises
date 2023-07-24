@@ -31,7 +31,7 @@ const App = () => {
     const updatedPerson = { ...personToAdd, number: newNumber }
 
     if (person.length !== 0) {
-      if (window.confirm(`${personToAdd.name} is already added to the phonebook, replace the old number with a new one ?`)) {
+      if (window.confirm(`${personToAdd.name} is already in the phonebook, replace the old number with a new one ?`)) {
         personService
           .update(updatedPerson.id, updatedPerson).then(returnedPerson => {
             console.log(`${returnedPerson.name} successfully updated`)

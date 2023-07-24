@@ -4,7 +4,6 @@ const notes = [
         important: true
     },
     {
-        id: 2,
         content: "I have seen mushroom with bigger brains.",
         important: false
     },
