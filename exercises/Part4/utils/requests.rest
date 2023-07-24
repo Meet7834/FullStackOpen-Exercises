@@ -1,0 +1,9 @@
+POST http://localhost:3001/api/blogs
+Content-Type: application/json
+
+{
+    "title": "Best things about rdr2",
+    "author": "Arthur Morgan",
+    "url": "http://localhost:3001/api/blogs/best-things-about-rdr2",
+    "likes": 51
+}
