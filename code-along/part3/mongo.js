@@ -1,14 +1,6 @@
 const mongoose = require('mongoose')
 
-if (process.argv.length<3) {
-  console.log('give password as argument')
-  process.exit(1)
-}
-
-const password = process.argv[2]
-
-const url =
-  `mongodb+srv://fullstack:${password}@cluster0.o1opl.mongodb.net/?retryWrites=true&w=majority`
+const url = process.env.TEST_URL
 
 mongoose.set('strictQuery',false)
 mongoose.connect(url)
@@ -21,18 +13,27 @@ const noteSchema = new mongoose.Schema({
 
 const Note = mongoose.model('Note', noteSchema)
 
-const note = new Note({
-  content: 'Mongoose makes things easy',
-  date: new Date(),
-  important: true,
-})
+// const note = new Note({
+//   content: 'Mongoose makes things easy',
+//   date: new Date(),
+//   important: true,
+// })
 
-/*
-note.save().then(result => {
-  console.log('note saved!')
-  mongoose.connection.close()
-})
-*/
+// const note2 = new Note({
+//   content:"Wow it does really do something",
+//   date: new Date(),
+//   important: false
+// })
+
+
+// note.save().then(result => {
+//   console.log('note saved!')
+// })
+
+// note2.save().then(result => {
+//   console.log('note2 saved!')
+//   // mongoose.connection.close()
+// })
 
 Note.find({}).then(result => {
   result.forEach(note => {
